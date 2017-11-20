@@ -22,6 +22,9 @@ $(function() {
 
     // prevent double submit
     $('form#todo').submit(function() {
+        if ($('input#cmd').val().substr(0,2) == 'ls') {
+          this.method='GET';
+        }
         $(':submit', this).attr('disabled','disabled').val('Loading...');
     });
 
